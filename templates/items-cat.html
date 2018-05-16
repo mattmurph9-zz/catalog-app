@@ -1,0 +1,17 @@
+{% extends "nav-base.html" %}
+
+{% block content %}
+
+<h3>{{category_name}} Items</h3>
+
+<a href="{{ url_for('addItem', category_name = category_name)}}">Add Item</a>
+<br>
+
+{% for item in items %}
+
+<a href="{{ url_for('showItem', category_name = item.category_name, item_name = item.name) }}">{{item.name}}</a>
+<br>
+
+{% endfor %}
+
+{% endblock %}

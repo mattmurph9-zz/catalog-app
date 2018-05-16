@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Catalog App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" style="background-color: #add8e6">
+        <div class="col-md-9 col-xs-9">
+          <h1>Catalog App</h1>
+        </div>
+        <div class="col-md-3 col-xs-3" style="padding-top: 40px">
+          <p class="text-right">
+          {% if 'username' in login_session %}
+            {{login_session['username']}} (<a class="login-link" href="/gdisconnect">logout</a>)
+          {% else %}
+            <a class="login-link" href="/login">login</a>
+          {% endif %}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+      {% block cat %}
+      <div class="col-md-4 col-xs-4">
+        <h3>Categories</h3>
+        {% for c in categories %}
+
+          <a href="{{ url_for('showCategory', category_name = c.name) }}">{{c.name}}</a>
+          <br>
+
+        {% endfor %}
+        <br>
+        <a href="{{ url_for('addCategory')}}">Add Category</a>
+
+      </div>
+      {% endblock %}
+      <div class="col-md-8 col-xs-8">{% block content %}{% endblock %}</div>
+      </div>
+
+    </div>
+  </body>
+</html>

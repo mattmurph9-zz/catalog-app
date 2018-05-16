@@ -1,0 +1,22 @@
+{% extends "nav-base.html" %}
+
+{% block cat %}
+
+{% endblock %}
+
+{% block content %}
+
+<h3>Add Category</h3>
+
+<form method="post">
+    <label>
+    	<div>Category Name</div>
+    	<input type="text" name="name" value="{{category_name}}">
+    </label>
+
+    <div class="error">{{error}}</div>
+    <br>
+	<input type="submit">
+</form>
+
+{% endblock %}

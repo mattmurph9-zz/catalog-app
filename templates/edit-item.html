@@ -1,0 +1,27 @@
+{% extends "nav-base.html" %}
+
+{% block cat %}
+
+{% endblock %}
+
+{% block content %}
+
+<h3>Edit Item {{item.name}} in {{item.category_name}}</h3>
+
+<form method="post">
+    <label>
+    	<div>Item Name</div>
+    	<input type="text" name="name" value="{{item_name}}" placeholder="{{item.name}}">
+    </label>
+
+    <label>
+        <div>Description</div>
+    	<textarea name="description" placeholder="{{item.description}}"></textarea>
+    </label>
+
+    <div class="error">{{error}}</div>
+
+	<input type="submit">
+</form>
+
+{% endblock %}

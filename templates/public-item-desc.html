@@ -1,0 +1,15 @@
+{% extends "nav-base.html" %}
+
+{% block cat %}
+
+{% endblock %}
+
+{% block content %}
+
+<h3>{{item.name}}</h3>
+
+<p>{{item.description}}</p>
+
+<a href="{{ url_for('showCategory', category_name = item.category_name)}}">Back to {{item.category_name}} page</a>
+
+{% endblock %}

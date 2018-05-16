@@ -1,0 +1,14 @@
+{% extends "nav-base.html" %}
+
+{% block content %}
+
+<h3>Latest</h3>
+
+{% for item in latest %}
+
+<a href="{{ url_for('showItem', category_name = item.category_name, item_name = item.name) }}">{{item.name}} ({{item.category_name}})</a>
+<br>
+
+{% endfor %}
+
+{% endblock %}
